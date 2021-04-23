@@ -34,6 +34,7 @@ namespace WebAPI.Controllers
         [HttpPost("add")]
         public IActionResult Add(Basket basket)
         {
+            basket.CreateDate = DateTime.Now;
             var result = _basketService.Add(basket);
             if (result.Success)
             {

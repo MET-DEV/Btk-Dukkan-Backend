@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -26,13 +27,13 @@ namespace Business.Concrete
             else
             {
                 _productDal.Add(product);
-                return new SuccessResult("Ürün eklendi");
+                return new SuccessResult(Messages.ProductAdded);
             }
         }
 
         public IDataResult<List<Product>> GetAll()
         {
-            return new SuccessDataResult<List<Product>>(_productDal.GetAll(),"Ürünler Listelendi");
+            return new SuccessDataResult<List<Product>>(_productDal.GetAll(),Messages.ProductListed);
         }
 
         public IDataResult<List<Product>> GetAllByCategory(int categoryId)
